@@ -35,6 +35,21 @@ app.use(helmet.noCache());
 // CSP works by defining an allowed list of content sources which are trusted. 
 app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] } }));
 
+// Or use parent helmet directly
+// app.use(helmet({
+//   frameguard: {         // configure
+//     action: 'deny'
+//   },
+//   contentSecurityPolicy: {    // enable and configure
+//     directives: {
+//       defaultSrc: ["'self'"],
+//       styleSrc: ['style.com'],
+//     }
+//   },
+//   dnsPrefetchControl: false     // disable
+// }))
+
+
 
 
 
