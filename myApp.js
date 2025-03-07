@@ -14,11 +14,12 @@ app.use(helmet.frameguard({ action: 'deny' }));
 // With this, the browser detects a potential injected script using a heuristic filter, changes and neitralizes the script code.
 app.use(helmet.xssFilter());
 
-//  Browsers can use content/MIME sniffing to override the response's Content-Type header to guess & process the data using an implicit content type. 
+// Browsers can use content/MIME sniffing to override the response's Content-Type header to guess & process the data using an implicit content type. 
 // This middleware sets the X-Content-Type-Options header to nosniff, instructing the browser to not bypass the provided Content-Type.
 app.use(helmet.noSniff());
 
-
+// Prevent IE users from executing downloads in the trusted site's context.
+app.use(helmet.ieNoOpen());
 
 
 
