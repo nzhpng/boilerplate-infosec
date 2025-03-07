@@ -31,6 +31,9 @@ app.use(helmet.dnsPrefetchControl());
 // Disable Client-Side Caching
 app.use(helmet.noCache());
 
+// Content Security Policy can prevent injection of anything unintended into page. 
+// CSP works by defining an allowed list of content sources which are trusted. 
+app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"], scriptSrc: ["'self'", "trusted-cdn.com"] } }));
 
 
 
